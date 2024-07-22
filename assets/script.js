@@ -17,19 +17,40 @@ const slides = [
 	}
 ]
 
+let indexCourrant = 0;
+
+
 //récuparation des id des flêches
-let arrowLeft = document.querySelector('.arrow_left');
-let arrowRight = document.querySelector('.arrow_right');
+ let arrowLeft = document.querySelector('.arrow_left');
+ let arrowRight = document.querySelector('.arrow_right');
 
 //ajoute un écouteur click et l'affiche dans la console si on clique
+// arrowLeft.addEventListener('click', function() {
+// 	console.log('je clique sur La flèche gauche');
+//  })
+
+ //pour la flêche droite
+arrowRight.addEventListener('click', function() {	
+	if (indexCourrant === slides.length - 1 ){
+		indexCourrant = 0;
+	} else {
+		indexCourrant = indexCourrant + 1;
+	}
+	 	console.log(indexCourrant);
+ })
+
+ // Pour la flèche gauche
 arrowLeft.addEventListener('click', function() {
-	console.log('je clique sur La flèche gauche');
-})
+	if (indexCourrant <= 0) {
+		indexCourrant = indexCourrant - 1;
+	} else {
+		indexCourrant = indexCourrant - 1;
+	}
 
-arrowRight.addEventListener('click', function() {
-	console.log('je clique sur La flèche droite');
-})
+	// Test si l'index atteint -3 ou en dessous
+	if (indexCourrant < -3) {
+		indexCourrant = 0;
+	}
 
-
-
-
+	console.log(indexCourrant);
+});
