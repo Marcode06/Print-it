@@ -54,3 +54,28 @@ arrowLeft.addEventListener('click', function() {
 
 	console.log(indexCourrant);
 });
+
+///////////// les dots //////////
+
+
+// Sélection de l'élément parent pour ajouter les points
+const dotsDiv = document.querySelector('.dots');
+
+// Nombre d'images dans le slider
+const nbImages = 4;
+ 
+let i;
+
+// Boucle pour créer et ajouter les points
+for (i = 0; i < nbImages; i++) {
+    // Crée un nouveau div pour chaque point
+    const para = document.createElement('div');
+    
+    // Ajout de la classe 'dot' à ce div
+    para.classList.add('dot');
+        
+    // Ajoute ce nouveau div à l'élément parent
+    dotsDiv.appendChild(para);
+}
+
+
