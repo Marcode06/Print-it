@@ -25,7 +25,7 @@ let indexCourant = 0;
 
  // images slider aux clics des fleches
  const banniereImage = document.querySelector('.banner-img');
- const tagLine = document.querySelector('.titre');
+ const tagLine = document.querySelector('.titre'); // selection de la classe "titre"
  // Fonction pour mettre à jour l'image
  function updateImage(index) {
 
