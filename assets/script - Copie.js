@@ -14,7 +14,7 @@ const slides = [
 	{
 		"image":"slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-	}	
+	}
 ]
 
 let indexCourant = 0;
@@ -38,11 +38,11 @@ let indexCourant = 0;
 ///////////// Afficher les dots ////////////////
 
 const dotsDiv = document.querySelector('.dots'); // selection de la classe des Bullets Points
-const nbImages = slides.length; // Nb total des slides
-console.log(nbImages);
+const nbImages = 4; // Nb total des slides
+let i; // Déclaration de la variable compteur i
 
 // Boucle for pour créer et ajouter les points :
-for (let i = 0; i < nbImages; i++) {   // Initialise i à 0, l'incrémente de 1 à chaque tour, et s'arrête après avoir créé tous les points.
+for (i = 0; i < nbImages; i++) {   // Initialise i à 0, l'incrémente de 1 à chaque tour, et s'arrête après avoir créé tous les points.
     const para = document.createElement('div');   // crée la nouvelle 'div' pour chaques points
     para.classList.add('dot');       // Ajoute la classe 'dot' à la div
     dotsDiv.appendChild(para);	  // Ajoute la div à l'élement parent 'dotsDiv'
@@ -57,17 +57,17 @@ let dot = document.querySelectorAll('.dot'); // Selection de tout les dot
 
  //Pour la flêche droite : ajout d'un écouteur d'évèvement 'addEventListener' pour son clic
  	flecheDroite.addEventListener('click', function() { 
-	dot[indexCourant].classList.remove('dot_selected'); // On Retire la sélection du point actuel.
+	dot[indexCourant].classList.remove('dot_selected'); // Avec 'remove' on retire la classe 'dot_selected' du point actuel
 
-	// Condition : On Passe à l'image suivante ou revient à la première si c'était la dernière.
+	// Condition : pour mettre à jour ‘indexCourant’
 	if (indexCourant === slides.length - 1 ){ // Si on est à la dernière slide
 		indexCourant = 0;  // On revient à la 1ere pour créer le déffilement infini
 	} else {
 		indexCourant = indexCourant + 1; // Sinon on passe à la suivante et
 	}
-        updateImage(indexCourant); // On Met à jour l'image et le point de navigation.
+        updateImage(indexCourant); // On met à jour l'image et le dot affiché
 		updateDots(indexCourant); 
-	 	console.log(indexCourant); // On Affiche l'index courant dans la console.
+	 	console.log(indexCourant);
  })
 
 //Pour la flêche gauche : ajout d'un écouteur d'évèvement 'addEventListener' pour son clic et 
